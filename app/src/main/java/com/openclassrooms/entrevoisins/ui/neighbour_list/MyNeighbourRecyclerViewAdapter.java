@@ -1,5 +1,9 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +28,7 @@ import butterknife.ButterKnife;
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
     private final List<Neighbour> mNeighbours;
+    private Context context;
 
     public MyNeighbourRecyclerViewAdapter(List<Neighbour> items) {
         mNeighbours = items;
@@ -38,8 +43,10 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
+        context = holder.itemView.getContext();
         Neighbour neighbour = mNeighbours.get(position);
         holder.mNeighbourName.setText(neighbour.getName());
+
         Glide.with(holder.mNeighbourAvatar.getContext())
                 .load(neighbour.getAvatarUrl())
                 .apply(RequestOptions.circleCropTransform())
@@ -49,6 +56,15 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             @Override
             public void onClick(View v) {
                 EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
+            }
+        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ShowNeighbourActivity.class);
+                intent.putExtra("neighbour", neighbour);
+                ActivityCompat.startActivity(context, intent, null);
             }
         });
     }
