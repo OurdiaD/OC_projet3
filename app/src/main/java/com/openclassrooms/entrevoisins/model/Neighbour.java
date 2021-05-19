@@ -26,6 +26,8 @@ public class Neighbour implements Serializable {
     /** About me */
     private String aboutMe;
 
+    private Boolean fav;
+
     /**
      * Constructor
      * @param id
@@ -40,6 +42,7 @@ public class Neighbour implements Serializable {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.aboutMe = aboutMe;
+        this.fav = false;
     }
 
     public long getId() {
@@ -88,6 +91,14 @@ public class Neighbour implements Serializable {
 
     public void setAboutMe(String aboutMe) {
         this.aboutMe = aboutMe;
+    }
+
+    public Boolean getFav() {
+        return fav;
+    }
+
+    public void setFav(Boolean fav) {
+        this.fav = fav;
     }
 
     @Override
