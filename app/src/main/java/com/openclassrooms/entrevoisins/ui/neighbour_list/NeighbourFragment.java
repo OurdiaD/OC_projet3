@@ -69,18 +69,12 @@ public class NeighbourFragment extends Fragment {
     private void initList() {
         int position = getArguments().getInt(KEY_POSITION, -1);
 
-        mNeighbours = mApiService.getNeighbours();
-        List<Neighbour> NeighboursFav = new ArrayList<>();
-        for (Neighbour neighbour : mNeighbours){
-            if (neighbour.getFav()){
-                NeighboursFav.add(neighbour);
-            }
-        }
         if (position == 0){
-            mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
+            mNeighbours = mApiService.getNeighbours();
         } else {
-            mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(NeighboursFav));
+            mNeighbours = mApiService.getFavs();
         }
+        mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
 
     }
 

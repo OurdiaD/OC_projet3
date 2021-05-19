@@ -44,7 +44,6 @@ public class ShowNeighbourActivity extends AppCompatActivity {
     @BindView(R.id.add_fav)
     FloatingActionButton addFav;
 
-    int colorFav;
     Neighbour neighbour;
     private NeighbourApiService mApiService;
 
@@ -54,15 +53,13 @@ public class ShowNeighbourActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_neighbour);
         ButterKnife.bind(this);
         mApiService = DI.getNeighbourApiService();
+        init();
+    }
 
-        ImageButton back = (ImageButton)findViewById(R.id.backHome);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
+    /**
+     * Init the neighbour
+     */
+    public void init(){
         Bundle extras = getIntent().getExtras();
         if (extras != null){
             neighbour = (Neighbour) extras.getSerializable("neighbour");
@@ -99,9 +96,8 @@ public class ShowNeighbourActivity extends AppCompatActivity {
         mApiService.editNeighbour(neighbour);
     }
 
-
     private void changeStar(Boolean fav){
-        colorFav = getResources().getColor(R.color.colorFav);
+        int colorFav = getResources().getColor(R.color.colorFav);
         if(fav){
             Drawable star = getDrawable(R.drawable.ic_star_white_24dp);
             star.setColorFilter(colorFav, PorterDuff.Mode.SRC_IN);
@@ -111,5 +107,10 @@ public class ShowNeighbourActivity extends AppCompatActivity {
             star.setColorFilter(colorFav, PorterDuff.Mode.SRC_IN);
             addFav.setImageDrawable(star);
         }
+    }
+
+    @OnClick(R.id.backHome)
+    protected void backHome(){
+        finish();
     }
 }

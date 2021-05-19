@@ -11,7 +11,6 @@
     android:layout_height="match_parent"
     android:background="#eceff0">
 
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -75,79 +74,52 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
-            <ImageView
-                android:id="@+id/imageAdress"
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/listAdress"
-                app:layout_constraintEnd_toStartOf="@id/listAdress"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/listAdress"
-                app:srcCompat="@drawable/location_on_24" />
-
             <TextView
                 android:id="@+id/listAdress"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:textSize="16sp"
+                android:drawableStart="@drawable/location_on_24"
+                android:drawablePadding="16dp"
                 app:layout_constraintBottom_toTopOf="@+id/listTel"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/imageAdress"
-                app:layout_constraintTop_toBottomOf="@id/listName" />
-
-            <ImageView
-                android:id="@+id/imageTel"
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/listTel"
-                app:layout_constraintEnd_toStartOf="@id/listTel"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/listTel"
-                app:srcCompat="@drawable/local_phone_24" />
+                app:layout_constraintTop_toBottomOf="@id/listName" />
 
             <TextView
                 android:id="@+id/listTel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:textSize="16sp"
+                android:drawableStart="@drawable/local_phone_24"
+                android:drawablePadding="16dp"
                 app:layout_constraintBottom_toTopOf="@+id/listMail"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/imageTel"
-                app:layout_constraintTop_toBottomOf="@id/listAdress" />
-
-            <ImageView
-                android:id="@+id/imageMail"
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/listMail"
-                app:layout_constraintEnd_toStartOf="@id/listMail"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/listMail"
-                app:srcCompat="@drawable/network_24" />
+                app:layout_constraintTop_toBottomOf="@id/listAdress" />
 
             <TextView
                 android:id="@+id/listMail"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:textSize="16sp"
+                android:drawableStart="@drawable/network_24"
+                android:drawablePadding="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/imageMail"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/listTel" />
         </android.support.constraint.ConstraintLayout>
 
